@@ -8,6 +8,5 @@ export default()=>{
     <hr/>
     <MarketingApp />
     </div>
-    
     );
 };
