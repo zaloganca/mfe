@@ -11,7 +11,8 @@ const prodConfig = {
     output:{
         //this ensures that whenever we build some files for production all diferent files will that are built use this
         //as template
-        filename: '[name].[contenthash].js'
+        filename: '[name].[contenthash].js',
+        publicPath: '/marketing/latest/',
     },
     plugins:[
         new ModuleFederationPlugin({

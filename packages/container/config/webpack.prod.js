@@ -24,7 +24,7 @@ const prodConfig = {
             name: 'container',
             remotes:{
                 //we gonna asumme that remote entry file for marketing is nested inside domain marketing
-                marketing: `marketing@${domain}/marketing/remoteEntry.js`
+                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`
             },
             shared: packageJson.dependencies,
         })
