@@ -14,7 +14,8 @@ const prodConfig = {
     output:{
         //this ensures that whenever we build some files for production all diferent files will that are built use this
         //as template
-        filename: '[name].[contenthash].js'
+        filename: '[name].[contenthash].js',
+        publicPath: '/container/latest/'
     },
     plugins:[
         //we need to make sure that all remote entry files url are gonna point to actually  production domain
