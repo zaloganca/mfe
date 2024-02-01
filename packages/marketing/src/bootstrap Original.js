@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {createMemoryHistory, createBrowserHistory} from 'history';
+import {createMemoryHistory} from 'history';
 
 //mount function to start up the app
-//defaultHistory only if we run in isolation marketing app
-const mount=(el,{onNavigate, defaultHistory, initialPath})=>{
-    const history = defaultHistory || createMemoryHistory({
-        initialEntries: [initialPath]
-    });
+const mount=(el,{onNavigate})=>{
+    const history = createMemoryHistory();
     //we tell the memory history object that whenever the url changes we want automatically to call onNavigate function
     //whenever a user clicks on link(Pricing) we gonna update our memory history. memory history 
     //automatically will call callback
@@ -20,6 +17,7 @@ const mount=(el,{onNavigate, defaultHistory, initialPath})=>{
         <App history={history}/>,
         el
     );
+    //every time the container does some navigation
     return{
         onParentNavigate({pathname: nextPathname}){
             const {pathname} = history.location;
@@ -37,7 +35,7 @@ if(process.env.NODE_ENV==='development'){
     const devRoot = document.querySelector('#_marketing-dev-root');
 
     if(devRoot){
-        mount(devRoot,{defaultHistory: createBrowserHistory(0)});
+        mount(devRoot,{});
     }
 }
 

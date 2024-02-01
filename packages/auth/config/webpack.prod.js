@@ -12,17 +12,14 @@ const prodConfig = {
         //this ensures that whenever we build some files for production all diferent files will that are built use this
         //as template
         filename: '[name].[contenthash].js',
-        //for production; whenever we load up our remoteEntry.js in production through the container
-        //the remoteEntry file will know where to find all the different files created by webpack
-        //and stash inside /marketing/latest/ folder inside S3 bucket 
-        publicPath: '/marketing/latest/',
+        publicPath: '/auth/latest/',
     },
     plugins:[
         new ModuleFederationPlugin({
-            name: 'marketing',
+            name: 'auth',
             filename: 'remoteEntry.js',
             exposes:{
-                './MarketingApp':'./src/bootstrap'
+                './AuthApp':'./src/bootstrap'
             },
            
             shared: packageJson.dependencies,
